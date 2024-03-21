@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- MyBatis에서 쿼리에 매핑되는 파라미터에 null값이 있을 경우 에러 발생 방지 -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+		<!-- MyBatis에서 캐싱기능 종료 -->
+		<setting name="cacheEnabled" value="false" />
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.ict.dao.VO" alias="vo"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mappers/guestbook2-mapper.xml" />
+	</mappers>
+</configuration>
