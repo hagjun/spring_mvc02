@@ -8,8 +8,8 @@
       select * from guestbook2 order by idx
    </select>
    <insert id="insert" parameterType="vo" >
-   	  insert into guestbook2(idx,id, pwd, name, email, subject, content, img, filename, regdate)
-   	  values(guestbook2_seq.nextval,#{id},#{pwd}, #{name}, #{email}, #{subject}, #{content}, #{img}, #{filename} ,sysdate)
+   	  insert into guestbook2(idx, pwd, name, email, subject, content,  f_name, regdate)
+   	  values(guestbook2_seq.nextval,#{pwd}, #{name}, #{email}, #{subject}, #{content}, #{f_name} ,sysdate)
    </insert>
    <select id="detail" parameterType="String" resultType="vo">
    	  select * from guestbook2 where idx = #{idx}
@@ -18,7 +18,10 @@
    	  delete from guestbook2 where idx = #{idx}
    </delete>
    <update id="update" parameterType="vo">
-   	  
+   	  update guestbook2
+   	  set name=#{name}, subject=#{subject}, email=#{email}, 
+   	  f_name=#{f_name}, content=#{content}
+   	  where idx =#{idx}
    </update>
 </mapper>
 
